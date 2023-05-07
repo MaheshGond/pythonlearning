@@ -4,6 +4,9 @@ import pandas as pd
 json_file = open('leetcode_data.json')
 
 question_data = json.load(json_file)
+like_dislike_file = open('like_dislike_data.json')
+like_dislike_data = json.load(like_dislike_file)
+
 all_questions = []
 final_tags_set = set()
 leetcode_string = "https://leetcode.com/problems/"
@@ -33,6 +36,6 @@ for question in question_data["data"]["topicTag"]["questions"]:
         all_questions.append(each_qn_dict)
 
 pandas_dataframe = pd.DataFrame(all_questions)
-file_name = 'tag_data_analysis.xlsx'
+file_name = 'tag_data_analysis_3.xlsx'
 pandas_dataframe.to_excel(file_name)
 print("final_tags_set", final_tags_set)
